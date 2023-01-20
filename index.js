@@ -1,11 +1,8 @@
-const { Sequelize } = require('sequelize');
-const config = require('./src/config/config');
+const { City } = require('./src/model/index');
 
-// Option 1: Passing a connection URI
-// const sequelize = new Sequelize('mysql://root:root:3306/world')
+async function test() {
+    const val = await City.findAll();
+    console.log(val)
+}
 
-
-// Option 3: Passing parameters separately (other dialects)
-const sequelize = new Sequelize(config.db);
-
-console.log(config)
+test()

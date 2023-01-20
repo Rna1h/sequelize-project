@@ -1,7 +1,7 @@
-require('dotenv').config()
+require('dotenv').config({ override: true, debug: true });
 
 const obj = {
-    db: {
+    dbConfig: {
         dialect: 'mysql',
         database: 'world',
         username: process.env.USERNAME,
@@ -14,7 +14,10 @@ const obj = {
 // restrict adding/removing new value to obj
 Object.freeze(obj);
 
-// restrict changing structure of obj keys | changing values allowed
+/*
+    restrict changing structure of obj keys
+    changing values allowed
+*/
 Object.values(obj).map(key => Object.seal(key))
 
 module.exports = obj;
